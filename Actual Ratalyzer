@@ -3,13 +3,13 @@ clc;clear;
 lolcoding = 1:1:20;
 lolcoding2 = 1:1:20;
 ratboy = lolcoding';
-parameter = lolcoding2'; %okay so now rat number and data point will be side by side columns
-parmeter(:) = 1; %from math knawledge approaching 1 means no pain because circle, assuming long axis is on the denominator, the smaller than one it is the more squinty the boy. 
+parameter = lolcoding2'; %okay so now rat number and data point are side by side columns
+parameter(:) = 1; %from math knawledge approaching 1 means no pain because circle, assuming long axis is on the denominator, the smaller than one it is the more squinty the boy. 
 % hopefully there's a strong correlation between these ratios and Pain. I
 % don't know what he has to do with this though, since he died in season 8.
 PAIN = [0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;]; %populate this with data that states whether the rodent is in no pain (0), moderate pain (1), and war-torn orpan (2)
-ratable = table(ratboy,PAIN,parameter); 
-ratree = fitctree([ratboy,PAIN],parameter,'PredictorNames',{'no pain','moderate pain','severe pain'});
-%if this works all rats should show to not be in pain. surprise! 
-% it doesnt work. There's an issue with Fitctree, idk what's wrong with it. I'm gonna try stuff on matlab.
-
+ratable = table(ratboy,parameter); 
+bettertable = table(ratboy,PAIN, parameter);
+ratree = fitctree(ratable, "PAIN", 'PredictorNames',"parameter");
+display(ratree); 
+%progress has been made! this will run now, but i don't really know if it runs properly, ie if it does what i want it to. 
