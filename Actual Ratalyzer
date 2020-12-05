@@ -1,1 +1,475 @@
+clc; clear; close all
+load jpegFiles.mat;
+rat1 = imread(jpegFiles.name(1)); 
+rat2 = imread(jpegFiles.name(2)); %may god forgive me for what i'm about to do 
+rat3 = imread(jpegFiles.name(3)); 
+rat4 = imread(jpegFiles.name(4));
+rat5 = imread(jpegFiles.name(5));
+rat6 = imread(jpegFiles.name(6));
+rat7 = imread(jpegFiles.name(7));
+rat8 = imread(jpegFiles.name(8));
+rat9 = imread(jpegFiles.name(9));
+rat10 = imread(jpegFiles.name(10));
+rat11 = imread(jpegFiles.name(11));
+rat12 = imread(jpegFiles.name(12));
+rat13 = imread(jpegFiles.name(13));
+rat14 = imread(jpegFiles.name(14));
+rat15 = imread(jpegFiles.name(15));
+rat16 = imread(jpegFiles.name(16));
+rat17 = imread(jpegFiles.name(17));
+rat18 = imread(jpegFiles.name(18));
+rat19 = imread(jpegFiles.name(19));
+rat20 = imread(jpegFiles.name(20));
+
+imshow(rat1); 
+imshow(rat2);
+imshow(rat3);
+imshow(rat4);
+imshow(rat5);
+imshow(rat6);
+imshow(rat7);
+imshow(rat8);
+imshow(rat9);
+imshow(rat10);
+imshow(rat11);
+imshow(rat12);
+imshow(rat13);
+imshow(rat14);
+imshow(rat15);
+imshow(rat16);
+imshow(rat17);
+imshow(rat18);
+imshow(rat19);
+imshow(rat20);
+I1=rgb2gray(rat1);
+I2=rgb2gray(rat2);
+I3=rgb2gray(rat3);
+I4=rgb2gray(rat4);
+I5=rgb2gray(rat5);
+I6=rgb2gray(rat6);
+I7=rgb2gray(rat7);
+I8=rgb2gray(rat8);
+I9=rgb2gray(rat9);
+I10=rgb2gray(rat10);
+I11=rgb2gray(rat11);
+I12=rgb2gray(rat12);
+I13=rgb2gray(rat13);
+I14=rgb2gray(rat14);
+I15=rgb2gray(rat15);
+I16=rgb2gray(rat16);
+I17=rgb2gray(rat17);
+I18=rgb2gray(rat18);
+I19=rgb2gray(rat19);
+I20=rgb2gray(rat20);
+[~, threshold1]=edge(I1,'Canny');
+[~, threshold2]=edge(I2,'Canny');
+[~, threshold3]=edge(I3,'Canny');
+[~, threshold4]=edge(I4,'Canny');
+[~, threshold5]=edge(I5,'Canny');
+[~, threshold6]=edge(I6,'Canny');
+[~, threshold7]=edge(I7,'Canny');
+[~, threshold8]=edge(I8,'Canny');
+[~, threshold9]=edge(I9,'Canny');
+[~, threshold10]=edge(I10,'Canny');
+[~, threshold11]=edge(I11,'Canny');
+[~, threshold12]=edge(I12,'Canny');
+[~, threshold13]=edge(I13,'Canny');
+[~, threshold14]=edge(I14,'Canny');
+[~, threshold15]=edge(I15,'Canny');
+[~, threshold16]=edge(I16,'Canny');
+[~, threshold17]=edge(I17,'Canny');
+[~, threshold18]=edge(I18,'Canny');
+[~, threshold19]=edge(I19,'Canny');
+[~, threshold20]=edge(I20,'Canny');
+
+
+
+
+Threshold (adjust slider that isolates the eyes the most)
+threshold;
+I_edge1=edge(I1,'Canny',3* threshold1);
+I_edge2=edge(I2,'Canny',3* threshold2);
+I_edge3=edge(I3,'Canny',3* threshold3);
+I_edge4=edge(I4,'Canny',3* threshold4);
+I_edge5=edge(I5,'Canny',3* threshold5);
+I_edge6=edge(I6,'Canny',3* threshold6);
+I_edge7=edge(I7,'Canny',3* threshold7);
+I_edge8=edge(I8,'Canny',3* threshold8);
+I_edge9=edge(I9,'Canny',3* threshold9);
+I_edge10=edge(I10,'Canny',3* threshold10);
+I_edge11=edge(I11,'Canny',3* threshold11);
+I_edge12=edge(I12,'Canny',3* threshold12);
+I_edge13=edge(I13,'Canny',3* threshold13);
+I_edge14=edge(I14,'Canny',3* threshold14);
+I_edge15=edge(I15,'Canny',3* threshold15);
+I_edge16=edge(I16,'Canny',3* threshold16);
+I_edge17=edge(I17,'Canny',3* threshold17);
+I_edge18=edge(I18,'Canny',3* threshold18);
+I_edge19=edge(I19,'Canny',3* threshold19);
+I_edge20=edge(I20,'Canny',3* threshold20);
+
+
+Eye isolated
+se90=strel('line',3,90);
+se0=strel('line',3,0);
+I_dilate1=imdilate(I_edge1,[se90 se0]);
+I_dilate2=imdilate(I_edge2,[se90 se0]);
+I_dilate3=imdilate(I_edge3,[se90 se0]);
+I_dilate4=imdilate(I_edge4,[se90 se0]);
+I_dilate5=imdilate(I_edge5,[se90 se0]);
+I_dilate6=imdilate(I_edge6,[se90 se0]);
+I_dilate7=imdilate(I_edge7,[se90 se0]);
+I_dilate8=imdilate(I_edge8,[se90 se0]);
+I_dilate9=imdilate(I_edge9,[se90 se0]);
+I_dilate10=imdilate(I_edge10,[se90 se0]);
+I_dilate11=imdilate(I_edge11,[se90 se0]);
+I_dilate12=imdilate(I_edge12,[se90 se0]);
+I_dilate13=imdilate(I_edge13,[se90 se0]);
+I_dilate14=imdilate(I_edge14,[se90 se0]);
+I_dilate15=imdilate(I_edge15,[se90 se0]);
+I_dilate16=imdilate(I_edge16,[se90 se0]);
+I_dilate17=imdilate(I_edge17,[se90 se0]);
+I_dilate18=imdilate(I_edge18,[se90 se0]);
+I_dilate19=imdilate(I_edge19,[se90 se0]);
+I_dilate20=imdilate(I_edge20,[se90 se0]);
+
+I_fill1=imfill(I_dilate1,'holes');
+I_fill2=imfill(I_dilate2,'holes');
+I_fill3=imfill(I_dilate3,'holes');
+I_fill4=imfill(I_dilate4,'holes');
+I_fill5=imfill(I_dilate5,'holes');
+I_fill6=imfill(I_dilate6,'holes');
+I_fill7=imfill(I_dilate7,'holes');
+I_fill8=imfill(I_dilate8,'holes');
+I_fill9=imfill(I_dilate9,'holes');
+I_fill10=imfill(I_dilate10,'holes');
+I_fill11=imfill(I_dilate11,'holes');
+I_fill12=imfill(I_dilate12,'holes');
+I_fill13=imfill(I_dilate13,'holes');
+I_fill14=imfill(I_dilate14,'holes');
+I_fill15=imfill(I_dilate15,'holes');
+I_fill16=imfill(I_dilate16,'holes');
+I_fill17=imfill(I_dilate17,'holes');
+I_fill18=imfill(I_dilate18,'holes');
+I_fill19=imfill(I_dilate19,'holes');
+I_fill20=imfill(I_dilate20,'holes');
+
+I_erode1=imerode(I_fill1,[se90 se0]);
+I_erode1=imerode(I_erode1,[se90 se0]);
+I_clear1=imclearborder(I_erode1);
+I_final1=labeloverlay(rat1,I_clear1); %group of four
+I_erode2=imerode(I_fill2,[se90 se0]);
+I_erode2=imerode(I_erode2,[se90 se0]);
+I_clear2=imclearborder(I_erode2);
+I_final2=labeloverlay(rat2,I_clear2);%group of four
+I_erode3=imerode(I_fill3,[se90 se0]);
+I_erode3=imerode(I_erode3,[se90 se0]);
+I_clear3=imclearborder(I_erode3);
+I_final3=labeloverlay(rat3,I_clear3);%group of four
+I_erode4=imerode(I_fill4,[se90 se0]);
+I_erode4=imerode(I_erode4,[se90 se0]);
+I_clear4=imclearborder(I_erode4);
+I_final4=labeloverlay(rat4,I_clear4);%group of four
+I_erode5=imerode(I_fill5,[se90 se0]);
+I_erode5=imerode(I_erode5,[se90 se0]);
+I_clear5=imclearborder(I_erode5);
+I_final5=labeloverlay(rat5,I_clear5);%group of four
+I_erode6=imerode(I_fill6,[se90 se0]);
+I_erode6=imerode(I_erode6,[se90 se0]);
+I_clear6=imclearborder(I_erode6);
+I_final6=labeloverlay(rat6,I_clear6);%group of four
+I_erode7=imerode(I_fill7,[se90 se0]);
+I_erode7=imerode(I_erode7,[se90 se0]);
+I_clear7=imclearborder(I_erode7);
+I_final7=labeloverlay(rat7,I_clear7);%group of four
+I_erode8=imerode(I_fill8,[se90 se0]);
+I_erode8=imerode(I_erode8,[se90 se0]);
+I_clear8=imclearborder(I_erode8);
+I_final8=labeloverlay(rat8,I_clear8);%group of four
+I_erode9=imerode(I_fill9,[se90 se0]);
+I_erode9=imerode(I_erode9,[se90 se0]);
+I_clear9=imclearborder(I_erode9);
+I_final9=labeloverlay(rat9,I_clear9);%group of four
+I_erode10=imerode(I_fill10,[se90 se0]);
+I_erode10=imerode(I_erode10,[se90 se0]);
+I_clear10=imclearborder(I_erode10);
+I_final10=labeloverlay(rat10,I_clear10);%group of four
+I_erode11=imerode(I_fill11,[se90 se0]);
+I_erode11=imerode(I_erode11,[se90 se0]);
+I_clear11=imclearborder(I_erode11);
+I_final11=labeloverlay(rat11,I_clear11);%group of four
+I_erode12=imerode(I_fill12,[se90 se0]);
+I_erode12=imerode(I_erode12,[se90 se0]);
+I_clear12=imclearborder(I_erode12);
+I_final12=labeloverlay(rat12,I_clear12);%group of four
+I_erode13=imerode(I_fill13,[se90 se0]);
+I_erode13=imerode(I_erode13,[se90 se0]);
+I_clear13=imclearborder(I_erode13);
+I_final13=labeloverlay(rat13,I_clear13);%group of four
+I_erode14=imerode(I_fill14,[se90 se0]);
+I_erode14=imerode(I_erode14,[se90 se0]);
+I_clear14=imclearborder(I_erode14);
+I_final14=labeloverlay(rat14,I_clear14);%group of four
+I_erode15=imerode(I_fill15,[se90 se0]);
+I_erode15=imerode(I_erode15,[se90 se0]);
+I_clear15=imclearborder(I_erode15);
+I_final15=labeloverlay(rat15,I_clear15);%group of four
+I_erode16=imerode(I_fill16,[se90 se0]);
+I_erode16=imerode(I_erode16,[se90 se0]);
+I_clear16=imclearborder(I_erode16);
+I_final16=labeloverlay(rat16,I_clear16);%group of four
+I_erode17=imerode(I_fill17,[se90 se0]);
+I_erode17=imerode(I_erode17,[se90 se0]);
+I_clear17=imclearborder(I_erode17);
+I_final17=labeloverlay(rat17,I_clear17);%group of four
+I_erode18=imerode(I_fill18,[se90 se0]);
+I_erode18=imerode(I_erode18,[se90 se0]);
+I_clear18=imclearborder(I_erode18);
+I_final18=labeloverlay(rat18,I_clear18);%group of four
+I_erode19=imerode(I_fill19,[se90 se0]);
+I_erode19=imerode(I_erode19,[se90 se0]);
+I_clear19=imclearborder(I_erode19);
+I_final19=labeloverlay(rat19,I_clear19);%group of four
+I_erode20=imerode(I_fill20,[se90 se0]);
+I_erode20=imerode(I_erode20,[se90 se0]);
+I_clear20=imclearborder(I_erode20);
+I_final20=labeloverlay(rat20,I_clear20);%group of four
+
+Final images
+% imshow(I1)
+% imshow(I_edge1)
+% imshow(I_dilate1)
+% imshow(I_fill1)
+% imshow(I_erode1)
+% imshow(I_clear1)
+imshow(I_final1);
+imshow(I_final2);
+imshow(I_final3);
+imshow(I_final4);
+imshow(I_final5);
+imshow(I_final6);
+imshow(I_final7);
+imshow(I_final8);
+imshow(I_final9);
+imshow(I_final10);
+imshow(I_final11);
+imshow(I_final12);
+imshow(I_final13);
+imshow(I_final14);
+imshow(I_final15);
+imshow(I_final16);
+imshow(I_final17);
+imshow(I_final18);
+imshow(I_final19);
+imshow(I_final20);
+Calculation of eye's area (biggest on image) 
+region1=regionprops(I_clear1);
+Area1=[region1.Area];
+eye_target1=find(Area1==max(Area1));
+eye_data1=region(eye_target1);
+bigeye_Area1=Area(eye_target1);
+BoundingBox1=eye_data1.BoundingBox1;
+X_dimension1=BoundingBox1(3);
+Y_dimension1=BoundingBox1(4);
+XY_ratio1= Y_dimension1/X_dimension1;
+% Idea: rats in pain will have squintier eyes; therefore the x dimension
+% will be larger and the y_dimension will be smaller resulting in a ratio
+% closer to zero. Rats not in pain will have a ratio closer or greater to
+% 1
+%boundingbox=[left,top,width,height] 
+region2=regionprops(I_clear2);
+Area2=[region2.Area];
+eye_target2=find(Area2==max(Area2));
+eye_data2=region(eye_target2);
+bigeye_Area2=Area(eye_target2);
+BoundingBox2=eye_data2.BoundingBox2;
+X_dimension2=BoundingBox2(3);
+Y_dimension2=BoundingBox2(4);
+XY_ratio2= Y_dimension2/X_dimension2;
+%NEXT
+region3=regionprops(I_clear3);
+Area3=[region3.Area];
+eye_target3=find(Area3==max(Area3));
+eye_data3=region(eye_target3);
+bigeye_Area3=Area(eye_target3);
+BoundingBox3=eye_data3.BoundingBox3;
+X_dimension3=BoundingBox3(3);
+Y_dimension3=BoundingBox3(4);
+XY_ratio3= Y_dimension3/X_dimension3;
+%NEXXT
+region4=regionprops(I_clear4);
+Area4=[region4.Area];
+eye_target4=find(Area4==max(Area4));
+eye_data4=region(eye_target4);
+bigeye_Area4=Area(eye_target4);
+BoundingBox4=eye_data4.BoundingBox4;
+X_dimension4=BoundingBox4(3);
+Y_dimension4=BoundingBox4(4);
+XY_ratio4= Y_dimension4/X_dimension4;
+%NEXXXT
+region5=regionprops(I_clear5);
+Area5=[region5.Area];
+eye_target5=find(Area5==max(Area5));
+eye_data5=region(eye_target5);
+bigeye_Area5=Area(eye_target5);
+BoundingBox5=eye_data5.BoundingBox5;
+X_dimension5=BoundingBox5(3);
+Y_dimension5=BoundingBox5(4);
+XY_ratio5= Y_dimension5/X_dimension5;
+%NEXXXXXT
+region6=regionprops(I_clear6);
+Area6=[region6.Area];
+eye_target6=find(Area6==max(Area6));
+eye_data6=region(eye_target6);
+bigeye_Area6=Area(eye_target6);
+BoundingBox6=eye_data6.BoundingBox6;
+X_dimension6=BoundingBox6(3);
+Y_dimension6=BoundingBox6(4);
+XY_ratio6= Y_dimension6/X_dimension6;
+%NEXXXXXXXXT
+region7=regionprops(I_clear7);
+Area7=[region7.Area];
+eye_target7=find(Area7==max(Area7));
+eye_data7=region(eye_target7);
+bigeye_Area7=Area(eye_target7);
+BoundingBox7=eye_data7.BoundingBox7;
+X_dimension7=BoundingBox7(3);
+Y_dimension7=BoundingBox7(4);
+XY_ratio7= Y_dimension7/X_dimension7;
+%NEEEEEEXXSXXTXTXTTXT
+region8=regionprops(I_clear8);
+Area8=[region8.Area];
+eye_target8=find(Area8==max(Area8));
+eye_data8=region(eye_target8);
+bigeye_Area8=Area(eye_target8);
+BoundingBox8=eye_data8.BoundingBox8;
+X_dimension8=BoundingBox8(3);
+Y_dimension8=BoundingBox8(4);
+XY_ratio8= Y_dimension8/X_dimension8;
+%next
+region9=regionprops(I_clear9);
+Area9=[region9.Area];
+eye_target9=find(Area9==max(Area));
+eye_data9=region(eye_target9);
+bigeye_Area9=Area(eye_target9);
+BoundingBox9=eye_data9.BoundingBox9;
+X_dimension9=BoundingBox9(3);
+Y_dimension9=BoundingBox9(4);
+XY_ratio9= Y_dimension9/X_dimension9;
+%el proximo
+region10=regionprops(I_clear10);
+Area10=[region10.Area];
+eye_target10=find(Area10==max(Area10));
+eye_data10=region(eye_target10);
+bigeye_Area10=Area(eye_target10);
+BoundingBox10=eye_data10.BoundingBox10;
+X_dimension10=BoundingBox10(3);
+Y_dimension10=BoundingBox10(4);
+XY_ratio10= Y_dimension10/X_dimension10;
+%l
+region11=regionprops(I_clear11);
+Area11=[region11.Area];
+eye_target11=find(Area11==max(Area11));
+eye_data11=region(eye_target11);
+bigeye_Area11=Area(eye_target11);
+BoundingBox11=eye_data11.BoundingBox11;
+X_dimension11=BoundingBox11(3);
+Y_dimension11=BoundingBox11(4);
+XY_ratio11= Y_dimension11/X_dimension11;
+%l
+region12=regionprops(I_clear12);
+Area12=[region12.Area];
+eye_target12=find(Area12==max(Area));
+eye_data12=region(eye_target12);
+bigeye_Area12=Area(eye_target12);
+BoundingBox12=eye_data12.BoundingBox12;
+X_dimension12=BoundingBox12(3);
+Y_dimension12=BoundingBox12(4);
+XY_ratio12= Y_dimension12/X_dimension12;
+%l
+region13=regionprops(I_clear13);
+Area13=[region13.Area];
+eye_target13=find(Area13==max(Area13));
+eye_data13=region(eye_target13);
+bigeye_Area13=Area(eye_target13);
+BoundingBox13=eye_data13.BoundingBox13;
+X_dimension13=BoundingBox13(3);
+Y_dimension13=BoundingBox13(4);
+XY_ratio13= Y_dimension13/X_dimension13;
+%bercules
+region14=regionprops(I_clear14);
+Area14=[region14.Area];
+eye_target14=find(Area14==max(Area14));
+eye_data14=region(eye_target14);
+bigeye_Area14=Area(eye_target14);
+BoundingBox14=eye_data14.BoundingBox14;
+X_dimension14=BoundingBox14(3);
+Y_dimension14=BoundingBox14(4);
+XY_ratio14= Y_dimension14/X_dimension14;
+%durrrrr
+region15=regionprops(I_clear15);
+Area15=[region15.Area];
+eye_target15=find(Area15==max(Area15));
+eye_data15=region(eye_target15);
+bigeye_Area15=Area(eye_target15);
+BoundingBox15=eye_data15.BoundingBox15;
+X_dimension15=BoundingBox15(3);
+Y_dimension15=BoundingBox15(4);
+XY_ratio15= Y_dimension15/X_dimension15;
+%:/
+region16=regionprops(I_clear16);
+Area16=[region16.Area];
+eye_target16=find(Area16==max(Area16));
+eye_data16=region(eye_target16);
+bigeye_Area16=Area(eye_target16);
+BoundingBox16=eye_data16.BoundingBox16;
+X_dimension16=BoundingBox16(3);
+Y_dimension16=BoundingBox16(4);
+XY_ratio16= Y_dimension16/X_dimension16;
+%
+region17=regionprops(I_clear17);
+Area17=[region17.Area];
+eye_target17=find(Area17==max(Area17));
+eye_data17=region(eye_target17);
+bigeye_Area17=Area(eye_target17);
+BoundingBox17=eye_data17.BoundingBox17;
+X_dimension17=BoundingBox17(3);
+Y_dimension17=BoundingBox17(4);
+XY_ratio17= Y_dimension17/X_dimension17;
+%ironically brute force only demonstrates weakness of the mind
+region18=regionprops(I_clear18);
+Area18=[region18.Area];
+eye_target18=find(Area18==max(Area));
+eye_data18=region(eye_target18);
+bigeye_Area18=Area(eye_target18);
+BoundingBox18=eye_data18.BoundingBox;
+X_dimension18=BoundingBox18(3);
+Y_dimension18=BoundingBox18(4);
+XY_ratio18= Y_dimension18/X_dimension18;
+%whatever
+region19=regionprops(I_clear19);
+Area19=[region19.Area];
+eye_target19=find(Area19==max(Area));
+eye_data19=region(eye_target19);
+bigeye_Area19=Area(eye_target19);
+BoundingBox19=eye_data19.BoundingBox19;
+X_dimension19=BoundingBox19(3);
+Y_dimension19=BoundingBox19(4);
+XY_ratio19= Y_dimension19/X_dimension19;
+%almost done, i mean almost time for the error message
+region20=regionprops(I_clear20);
+Area20=[region20.Area];
+eye_target20=find(Area20==max(Area));
+eye_data20=region(eye_target20);
+bigeye_Area20=Area(eye_target20);
+BoundingBox20=eye_data20.BoundingBox20;
+X_dimension20=BoundingBox20(3);
+Y_dimension20=BoundingBox20(4);
+XY_ratio20= Y_dimension20/X_dimension20;
+%dare i execute this pile of trash? 
+%of course it doesn't work what was i thinking? 
+
+
+
+
 
